@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>MemoryGame</title>
+</head>
+
+<body>
+    <div id="menu">
+        <h1>Memory Game!!!</h1>
+
+        <div id="cards-container">
+            <button class="btn-option hp" data-theme="hp">Harry Potter</button>
+            <button class="btn-option dogs" data-theme="dogs">Dogs</button>
+            <button class="btn-option cats" data-theme="cats">Cats</button>
+            <button class="btn-option random" id="randomBtn">🎲❓ Surprise Me! ❓🎲</button>
+
+        </div>
+    </div>
+
+
+    <div id="status">
+        <div class="stat-box">
+            <span>⏱️</span>
+            <span id="time">0</span>
+        </div>
+        <div class="separator"></div>
+        <div class="stat-box">
+            <span>🏆</span>
+            <span id="score">0</span>
+        </div>
+    </div>
+
+    <div id="loader" style="display: none;">
+         <div class="spinner"></div>
+         <p>Loading Cards...</p>
+    </div>
+
+
+    <div id="gameBoard" style="display: none;">
+        <div class="board"></div>
+
+    </div>
+
+    <button id="resetBtn">Play Again</button>
+
+    <script src="script.js"></script>
+</body>
+</ht
