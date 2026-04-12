@@ -1,0 +1,60 @@
+body {
+    text-align: center;
+    background: rgb(255, 207, 215);
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 80px;
+}
+
+.btn-option {
+    width: 100px;
+    height: 50px;
+    color: black;
+    cursor: pointer;
+   
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.hp {
+    background-color: rgb(245, 50, 187);
+}
+
+.dogs {
+     background-color: rgb(157, 38, 77);
+}
+
+.cats {
+    background-color: rgb(243, 117, 159);
+}
+
+
+.game-card {
+    width: 100px;
+    height: 100px;
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-card img {
+    width: 80%;
+    height: 80%;
+    display: none;
+}
+
+.game-card.open img {
+    display: block;
+    
+}
