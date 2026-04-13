@@ -124,7 +124,7 @@ function disableCards (){
       firstCard.classList.add("matched");
     secondCard.classList.add("matched");
 
-    score += 10;
+    score += 16.7;
     matchedPairs++;
 
     updateScore();
@@ -140,7 +140,12 @@ function unflipCards () {
         firstCard.classList.remove("open");
         secondCard.classList.remove("open");
 
-        score -= 2;
+        if (score >=20 ){
+            score -= 20;
+        } else {
+            score = 0
+        }
+
         updateScore();
 
         resetBoard();
