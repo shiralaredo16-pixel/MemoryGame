@@ -13,7 +13,7 @@ let timer;
 
 let matchedPairs = 0;
 
-const buttons = document.querySelectorAll("btn-option");
+const buttons = document.querySelectorAll(".btn-option");
 
 buttons.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -22,7 +22,7 @@ buttons.forEach(btn => {
         menu.style.display = "none";
         gameBoard.style.display = "grid";
         
-        gameBoard.className = "board" + theme;
+        gameBoard.className = "board " + theme;
 
         startTimer();
         loadImages(theme);
@@ -49,7 +49,7 @@ async function loadImages(theme) {
     }
 
     if (theme === "cats") {
-        const res = await fetch("https://api.thecatapi.com/v1/images/search?limit=10");
+        const res = await fetch("https://api.thecatapi.com/v1/images/search?limit=6");
         const data = await res.json();
         images = data.map(img => img.url);
     }
@@ -82,9 +82,90 @@ function createBoard(images) {
 
         card.appendChild(image);
 
-        card.addEventListener("click", () => filpCard(card));
+        card.addEventListener("click", () => flipCard(card));
 
         gameBoard.appendChild(card);
     });
+}
+
+function flipCard(card) {
+
+    if (lockBoard) return;
+    if (card === firstCard) return;
+
+     if (card.classList.contains("matched")) return;
+
+    card.classList.add("open");
+
+    if (!firstCard) {
+        firstCard = card;
+        return;
+    }
+
+    secondCard = card;
+    lockBoard = true;
+
+    checkMatch();
+}
+
+function checkMatch () {
+    const isMatch =
+      firstCard.querySelector("img").src ===
+      secondCard.querySelector("img").src;
+    if (isMatch) {
+        disableCards();
+    }  else {
+        unflipCards ();
+    }    
+}
+
+function disableCards (){
+
+      firstCard.classList.add("matched");
+    secondCard.classList.add("matched");
+
+    score += 10;
+    matchedPairs++;
+
+    updateScore();
+
+    resetBoard();
+
+    checkWin();
+
+}
+
+function unflipCards () {
+    setTimeout (() => {
+        firstCard.classList.remove("open");
+        secondCard.classList.remove("open");
+
+        score -= 2;
+        updateScore();
+
+        resetBoard();
+
+    }, 800);
+}
+
+function resetBoard () {
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+}
+
+function updateScore() {
+    scorelEI.textContent = score;
+}
+
+function checkWin() {
+    if (matchedPairs === 6) {
+        clearInterval(timer);
+        setTimeout(() => {
+            alert(`victory! \nFinel Time: ${time} \nScore: ${score}`)
+        },300 ); 
+            
+        
+    }
 }
 

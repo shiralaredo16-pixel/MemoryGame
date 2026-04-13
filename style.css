@@ -1,6 +1,10 @@
 body {
     text-align: center;
     background: rgb(255, 207, 215);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .cards-container {
@@ -21,9 +25,17 @@ body {
 .board {
     display: grid;
     grid-template-columns: repeat(4, 100px);
-    grid-gap: 10px;
+    grid-template-rows: repeat(3,100px);
+    grid-gap: 8px;
     justify-content: center;
-    margin-top: 30px;
+    align-items: center;
+    margin: 60px;
+    width: fit-content;
+    height: fit-content;
+    background-color: aqua;
+    border-radius: 4px;
+
+   
 }
 
 .hp {
