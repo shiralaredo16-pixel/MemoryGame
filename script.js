@@ -125,7 +125,7 @@ function disableCards (){
       firstCard.classList.add("matched");
     secondCard.classList.add("matched");
 
-    score += 16.7;
+    score += 20;
     matchedPairs++;
 
     updateScore();
@@ -161,14 +161,14 @@ function resetBoard () {
 }
 
 function updateScore() {
-    scorelEI.textContent = score;
+    scorelEI.textContent = Math.round(score);
 }
 
 function checkWin() {
     if (matchedPairs === 6) {
         clearInterval(timer);
         setTimeout(() => {
-            alert(`victory! \nFinel Time: ${time} \nScore: ${score}`)
+            alert(`Memory master! You win! \nFinel Time: ${time} \nScore: ${score}`)
         },300 ); 
             
         
