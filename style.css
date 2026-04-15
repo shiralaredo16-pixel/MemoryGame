@@ -15,11 +15,42 @@ body {
 }
 
 .btn-option {
-    width: 100px;
-    height: 50px;
-    color: black;
+     border: none;
+     color: black;
+
+    padding: 20px 40px;   
+    font-size: 22px;      
+    border-radius: 15px;
+
     cursor: pointer;
    
+}
+
+#resetBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    border: none;
+
+    padding: 20px 40px;   
+    font-size: 22px;      
+    border-radius: 15px;
+
+    cursor: pointer;
+}
+
+
+#resetBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+
+#resetBtn:active {
+    transform: scale(0.95);
 }
 
 .board {

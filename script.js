@@ -2,6 +2,7 @@ const menu = document.getElementById("menu");
 const gameBoard = document.getElementById("gameBoard");
 const timeEI = document.getElementById("time");
 const scorelEI = document.getElementById("score");
+const resetBtn = document.getElementById("resetBtn");
 
 let firstCard = null;
 let secondCard = null;
@@ -173,4 +174,28 @@ function checkWin() {
         
     }
 }
+
+resetBtn.addEventListener("click", resetGame);
+
+function resetGame() {
+   
+    clearInterval(timer);
+
+    score = 0;
+    time = 0;
+    matchedPairs = 0;
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+
+    updateScore();
+    timeEI.textContent = "0";
+
+    gameBoard.innerHTML = ""; 
+    gameBoard.style.display = "none"; 
+    menu.style.display = ""; 
+}
+
+
+
 
