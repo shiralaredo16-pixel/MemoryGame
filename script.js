@@ -5,6 +5,8 @@ const scorelEI = document.getElementById("score");
 const resetBtn = document.getElementById("resetBtn");
 const randomBtn = document.getElementById("randomBtn");
 
+
+
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
@@ -34,6 +36,9 @@ buttons.forEach(btn => {
 });
 
 function startTimer () {
+
+    clearInterval(timer);
+
     time = 0;
 
     timer = setInterval(() => {
@@ -43,7 +48,9 @@ function startTimer () {
 }
 
 async function loadImages(theme) {
-    
+
+    document.getElementById("loader").style.display = "flex";
+
     let images =[];
 
     if (theme === "dogs") {
@@ -69,6 +76,8 @@ async function loadImages(theme) {
     }
 
     createBoard(images);
+
+    document.getElementById("loader").style.display = "none";
 }
 
 function createBoard(images) {

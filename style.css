@@ -90,12 +90,7 @@ text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px
     background: linear-gradient(135deg, #ff7eb3, #ff758c);
     color: white;
     border: none;
-
-    
-    
-
 }
-
 
 
 .game-card {
@@ -170,4 +165,38 @@ text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px
     height: 25px;
     background: rgba(255,255,255,0.2);
 }
+
+#loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 42, 184, 0.2);
+    border-top: 5px solid #FF2D95 ;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loader p {
+    color: #FF2D95 ;
+    font-weight: bold;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
 
