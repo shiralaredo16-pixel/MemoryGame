@@ -96,20 +96,16 @@ randomBtn.addEventListener("click", () => {
     // 1. הגרלת נושא
     const themes = ["hp", "dogs", "cats"];
     const randomTheme = themes[Math.floor(Math.random() * themes.length)];
-    
-    // 2. הסתרת התפריט והצגת הלוח
+
     menu.style.display = "none";
     gameBoard.style.display = "grid";
     
-    // 3. הזזת הסטטוס (הניקוד והטיימר) למקום שהגדרנו ב-CSS
     document.getElementById("status").classList.add("active-game");
     
-    // 4. הגדרת העיצוב והפעלת המשחק
     gameBoard.className = "board " + randomTheme;
     startTimer();
     loadImages(randomTheme);
 });
-
 
 
 function flipCard(card) {
