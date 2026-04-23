@@ -3,6 +3,7 @@ const gameBoard = document.getElementById("gameBoard");
 const timeEI = document.getElementById("time");
 const scorelEI = document.getElementById("score");
 const resetBtn = document.getElementById("resetBtn");
+const randomBtn = document.getElementById("randomBtn");
 
 let firstCard = null;
 let secondCard = null;
@@ -22,6 +23,8 @@ buttons.forEach(btn => {
 
         menu.style.display = "none";
         gameBoard.style.display = "grid";
+
+         document.getElementById("status").classList.add("active-game");
         
         gameBoard.className = "board " + theme;
 
@@ -88,6 +91,26 @@ function createBoard(images) {
         gameBoard.appendChild(card);
     });
 }
+
+randomBtn.addEventListener("click", () => {
+    // 1. הגרלת נושא
+    const themes = ["hp", "dogs", "cats"];
+    const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+    
+    // 2. הסתרת התפריט והצגת הלוח
+    menu.style.display = "none";
+    gameBoard.style.display = "grid";
+    
+    // 3. הזזת הסטטוס (הניקוד והטיימר) למקום שהגדרנו ב-CSS
+    document.getElementById("status").classList.add("active-game");
+    
+    // 4. הגדרת העיצוב והפעלת המשחק
+    gameBoard.className = "board " + randomTheme;
+    startTimer();
+    loadImages(randomTheme);
+});
+
+
 
 function flipCard(card) {
 
@@ -175,6 +198,7 @@ function checkWin() {
     }
 }
 
+
 resetBtn.addEventListener("click", resetGame);
 
 function resetGame() {
@@ -187,6 +211,8 @@ function resetGame() {
     firstCard = null;
     secondCard = null;
     lockBoard = false;
+
+     document.getElementById("status").classList.remove("active-game");
 
     updateScore();
     timeEI.textContent = "0";
